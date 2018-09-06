@@ -1,8 +1,8 @@
 {
   "development": {
     "username": "root",
-    "password": null,
-    "database": "exampledb",
+    "password": "lawton1331",
+    "database": "sandwichdashdb",
     "host": "localhost",
     "dialect": "mysql"
   },
