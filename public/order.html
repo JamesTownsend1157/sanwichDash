@@ -147,19 +147,19 @@
 								<div class="col">
 									<h3>Condiments</h3>
 									<div class="form-check">
-										<input class="form-check-input condiment" type="checkbox" name="exampleRadios" id="exampleRadios1" value="mayo" checked>
+										<input class="form-check-input condiments" type="checkbox" name="exampleRadios" id="exampleRadios1" value="mayo" checked>
 										<label class="form-check-label" for="exampleRadios1">
 											Mayo
 										</label>
 									</div>
 									<div class="form-check">
-										<input class="form-check-input condiment" type="checkbox" name="exampleRadios" id="exampleRadios2" value="mustard">
+										<input class="form-check-input condiments" type="checkbox" name="exampleRadios" id="exampleRadios2" value="mustard">
 										<label class="form-check-label" for="exampleRadios2">
 											Mustard
 										</label>
 									</div>
 									<div class="form-check">
-										<input class="form-check-input condiment" type="checkbox" name="exampleRadios" id="exampleRadios3" value="spicy mustard">
+										<input class="form-check-input condiments" type="checkbox" name="exampleRadios" id="exampleRadios3" value="spicy mustard">
 										<label class="form-check-label" for="exampleRadios3">
 											Spicy Mustard
 										</label>
@@ -230,24 +230,8 @@
 	</div>
 
 	<!-- Custom Script -->
-	<script type="text/javascript">
+	<script type="text/javascript" src="js/order.js">
 
-		$(".submit").on("click", function (event) {
-			event.preventDefault();
-
-			var newOrder = {
-				bread: $(".bread:checked").val().trim(),
-				meat: $(".meat:checked").map(function () {
-					return this.value;
-				}).get().join(","),
-				cheese:
-					$(".cheese:checked").val().trim(),
-			}
-
-
-
-			console.log(newOrder);
-		})
 
 
 	</script>
