@@ -1,7 +1,8 @@
 
 
-var newOrder = {};
-
+var newSandwich = {};
+var newSides = {};
+var newDrinks = {};
 $(".submit").on("click", function (event) {
     event.preventDefault();
 
@@ -30,10 +31,10 @@ $(".submit").on("click", function (event) {
 
     $.ajax("/api/orders", {
         type: "POST",
-        data: newOrder
+        data: newSandwich
     }).then(
         function () {
-            console.log(newOrder);
+            console.log(newSandwich);
         }
     )
 });
@@ -41,47 +42,56 @@ $(".submit").on("click", function (event) {
 $(".addSandwich").on("click", function (event) {
     event.preventDefault();
 
-        newOrder.bread = $(".bread:checked").val().trim();
-        newOrder.meat = $(".meat:checked").map(function () {
-            return this.value;
-        }).get().join(",");
-        newOrder.cheese = $(".cheese:checked").map(function () {
-            return this.value;
-        }).get().join(",");
-        newOrder.veggies = $(".veggies:checked").map(function () {
-            return this.value;
-        }).get().join(",");
-        newOrder.condiments = $(".condiments:checked").map(function () {
-            return this.value;
-        }).get().join(",");
 
-    console.log(newOrder);
+
+    newSandwich.bread = $(".bread:checked").val().trim();
+    newSandwich.meat = $(".meat:checked").map(function () { return this.value; }).get().join(",");
+    newSandwich.cheese = $(".cheese:checked").map(function () { return this.value; }).get().join(",");
+    newSandwich.veggies = $(".veggies:checked").map(function () { return this.value; }).get().join(",");
+    newSandwich.condiments = $(".condiments:checked").map(function () { return this.value; }).get().join(",");
+
+    $.ajax("/api/sandwiches", {
+        type: "POST",
+        data: newSandwich
+    }).then(
+        function () {
+            console.log(newSandwich);
+        }
+    )
 });
 
 
 $(".addChips").on("click", function (event) {
     event.preventDefault();
 
-    var addChips = {
-        chips: $(".chips:checked").map(function () {
-            return this.value;
-        }).get().join(",")
-    };
-    newOrder.push(addChips);
 
-    console.log(newOrder);
+    newSides.chips = $(".chips:checked").map(function () {return this.value;}).get().join(",");
+
+    $.ajax("/api/Sides", {
+        type: "POST",
+        data: newSides
+    }).then(
+        function () {
+            console.log(newSides);
+        }
+    )
 });
 
 
 $(".addDrinks").on("click", function (event) {
     event.preventDefault();
 
-    var addDrinks = {
-        drinks: $(".drinks:checked").map(function () {
-            return this.value;
-        }).get().join(",")
-    };
-    newOrder.push(addDrinks);
 
-    console.log(newOrder);
+    newDrinks.drinks = $(".drinks:checked").map(function () {
+        return this.value;
+    }).get().join(",")
+
+    $.ajax("/api/Drinks", {
+        type: "POST",
+        data: newDrinks
+    }).then(
+        function () {
+            console.log(newDrinks);
+        }
+    )
 });
