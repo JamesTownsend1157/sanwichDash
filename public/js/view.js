@@ -20,7 +20,7 @@ function showRemaining() {
  
 // Run every second just after next full second
 (function timer() {
-  $( "#countDown" ).html(showRemaining());
+  $( ".countDown" ).html(showRemaining());
     var lag = 1020 - (Date.now()%1000)
     setTimeout(timer, lag);
 }());

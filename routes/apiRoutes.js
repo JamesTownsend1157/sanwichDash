@@ -15,32 +15,32 @@ module.exports = function(app) {
     });
   });
 
-  app.get("/api/sides", function(req, res) {
-    db.Side.findAll({}).then(function(dbSide) {
-      res.json(dbSide);
-    });
-  });
+  // app.get("/api/sides", function(req, res) {
+  //   db.Side.findAll({}).then(function(dbSide) {
+  //     res.json(dbSide);
+  //   });
+  // });
 
-  // Create a new example
-  app.post("/api/sides", function(req, res) {
-    db.Side.create(req.body).then(function(dbSide) {
-      res.json(dbSide);
-    });
-  });
+  // // Create a new example
+  // app.post("/api/sides", function(req, res) {
+  //   db.Side.create(req.body).then(function(dbSide) {
+  //     res.json(dbSide);
+  //   });
+  // });
 
   
-  app.get("/api/drinks", function(req, res) {
-    db.Drink.findAll({}).then(function(dbDrink) {
-      res.json(dbDrink);
-    });
-  });
+  // app.get("/api/drinks", function(req, res) {
+  //   db.Drink.findAll({}).then(function(dbDrink) {
+  //     res.json(dbDrink);
+  //   });
+  // });
 
-  // Create a new example
-  app.post("/api/drinks", function(req, res) {
-    db.Drink.create(req.body).then(function(dbDrink) {
-      res.json(dbDrink);
-    });
-  });
+  // // Create a new example
+  // app.post("/api/drinks", function(req, res) {
+  //   db.Drink.create(req.body).then(function(dbDrink) {
+  //     res.json(dbDrink);
+  //   });
+  // });
 
 
 
