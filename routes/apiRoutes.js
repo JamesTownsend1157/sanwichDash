@@ -2,16 +2,16 @@ var db = require("../models");
 
 module.exports = function(app) {
   // Get all examples
-  app.get("/api/sandwiches", function(req, res) {
-    db.Sandwich.findAll({}).then(function(dbSandwich) {
-      res.json(dbSandwich);
+  app.get("/api/orders", function(req, res) {
+    db.Sandwich.findAll({}).then(function(dbOrder) {
+      res.json(dbOrder);
     });
   });
 
   // Create a new example
-  app.post("/api/sandwiches", function(req, res) {
-    db.Sandwich.create(req.body).then(function(dbSandwich) {
-      res.json(dbSandwich);
+  app.post("/api/orders", function(req, res) {
+    db.Sandwich.create(req.body).then(function(dbOrder) {
+      res.json(dbOrder);
     });
   });
 

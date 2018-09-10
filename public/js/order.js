@@ -39,7 +39,7 @@ $(".submit").on("click", function (event) {
     )
 });
 
-$(".addSandwich").on("click", function (event) {
+$(".addOrder").on("click", function (event) {
     event.preventDefault();
 
 
@@ -49,13 +49,15 @@ $(".addSandwich").on("click", function (event) {
     newSandwich.cheese = $(".cheese:checked").map(function () { return this.value; }).get().join(",");
     newSandwich.veggies = $(".veggies:checked").map(function () { return this.value; }).get().join(",");
     newSandwich.condiments = $(".condiments:checked").map(function () { return this.value; }).get().join(",");
+    newSides.chips = $(".chips:checked").map(function () {return this.value;}).get().join(",");
 
-    $.ajax("/api/sandwiches", {
+
+    $.ajax("/api/Order", {
         type: "POST",
-        data: newSandwich
+        data: newOrder
     }).then(
         function () {
-            console.log(newSandwich);
+            console.log(newOrder);
         }
     )
 });

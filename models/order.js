@@ -1,23 +1,13 @@
 module.exports = function(sequelize, DataTypes) {
-  var Side = sequelize.define("Side", {
-    chips: DataTypes.STRING
-    });
-  return Side;
-};
-
-module.exports = function(sequelize, DataTypes) {
-  var Sandwich = sequelize.define("Sandwich", {
+  var Order = sequelize.define("Order", {
     bread: DataTypes.STRING,
     meat: DataTypes.STRING,
     veggies: DataTypes.STRING,
     condiments: DataTypes.STRING,
-  });
-  return Sandwich;
+    chips: DataTypes.STRING,
+    drinks: DataTypes.STRING,
+    });
+  return Order;
 };
 
-module.exports = function(sequelize, DataTypes) {
-  var Drink = sequelize.define("Drink", {
-        drinks: DataTypes.STRING,
-    });
-  return Drink;
-};
+
