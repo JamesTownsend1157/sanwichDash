@@ -1,29 +1,3 @@
-function showRemaining() {
-    var endDate = new Date();
-  
-    // If after 1100, add a day
-    if (endDate.getHours() > 11) {   
-      endDate.setDate(endDate.getDate() + 1);
-    }
-    // Set time to 11am;
-    endDate.setHours(11,0,0,0);
-  
-    // Get seconds from now to end
-    var diff = Math.ceil((endDate - Date.now())/1000);
-  
-    // Show time as h:mm:ss
-    return ( (diff/3.6e3|0) + ':' +
-             ('0'+((diff%3.6e3)/60|0)).slice(-2) + ':' +
-             ('0'+(diff%60)).slice(-2)
-           );
-  }
-   
-  // Run every second just after next full second
-  (function timer() {
-    $( ".countDown" ).html(showRemaining());
-      var lag = 1020 - (Date.now()%1000)
-      setTimeout(timer, lag);
-  }());
 
 // var newSandwich = {};
 // var newSides = {};
