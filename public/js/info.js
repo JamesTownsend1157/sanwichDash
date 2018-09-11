@@ -1,21 +1,41 @@
 
 
-$(".submit").on("click", function (event) {
 
-    // var newInfo = {
-    //     name: $("#fullname").val().trim(),
-    //     address: $("#streetaddress").val().trim(),
-    // };
+
+
+$(".submit").on("click", function (event) {
+    // event.preventDefault();
+    sessionStorage.setItem('orderid', Math.random());
+    var newInfo = {
+        orderid: sessionStorage.getItem('orderid'),
+        name: $("#fullname").val().trim(),
+        streetaddress: $("#streetaddress").val().trim(),
+        suite_apartment: $("#streetaddress").val().trim(),
+        city: $("#streetaddress").val().trim(),
+        state: $("#streetaddress").val().trim(),
+        zip: $("#streetaddress").val().trim(),
+
+    };
 
     // console.log(newInfo)
+    $.ajax("/api/info", {
+        type: "POST",
+        data: newInfo
+    }).then(
+        function () {
+            console.log(newInfo);
+        }
+    )
 
-    sessionStorage.setItem('fullname', JSON.stringify($("#fullname").val().trim()));
-    sessionStorage.setItem('streetaddress', JSON.stringify($("#streetaddress").val().trim()));
+    // sessionStorage.setItem('fullname', $("#fullname").val().trim());
+    // sessionStorage.setItem('streetaddress', JSON.stringify($("#streetaddress").val().trim()));
+  
 
 
-    console.log(sessionStorage.getItem('fullname'));
-    console.log(sessionStorage.getItem('streetaddress'));
-
+    // console.log(sessionStorage.getItem('fullname'));
+    // console.log(sessionStorage.getItem('streetaddress'));
+    console.log(sessionStorage.getItem('orderid'));
+    
     
 
     // $.ajax("/api/orders", {
