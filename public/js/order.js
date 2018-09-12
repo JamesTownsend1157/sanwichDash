@@ -4,7 +4,7 @@ var newSandwich = [];
 var newOrder = [];
 
 $(".submit").on("click", function (event) {
-    // event.preventDefault();
+    event.preventDefault();
 
     // var newOrder = {
     //     bread: $(".bread:checked").val().trim(),

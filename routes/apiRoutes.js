@@ -56,6 +56,20 @@ module.exports = function(app) {
   });
 
 
+  app.get("/api/orders", function(req, res) {
+    // Here we add an "include" property to our options in our findAll query
+    // We set the value to an array of the models we want to include in a left outer join
+    // In this case, just db.Post
+    db.Info.findAll({
+      include: [db.Side],
+      include: [db.Sandwich],
+      include: [db.Drink]
+    }).then(function(dbSide,dbSandwich,dbDrink) {
+      res.json(dbSide);
+      res.json(dbSandwich);
+      res.json(dbDrink);
+    });
+  });
 
 
   // Delete an example by id

@@ -8,6 +8,13 @@ module.exports = function(sequelize, DataTypes) {
       condiments: DataTypes.STRING,
     });
 
+    Sandwich.associate = function(models) {
+      // We're saying that a Post should belong to an Author
+      // A Post can't be created without an Author due to the foreign key constraint
+      Sandwich.belongsTo(models.Info, {
+        foreignKey: 'orderid'}
+      );
+    };
     // Sandwich.associate = function(models) {
     //   // We're saying that a Post should belong to an Author
     //   // A Post can't be created without an Author due to the foreign key constraint

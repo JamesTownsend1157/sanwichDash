@@ -23,10 +23,26 @@ module.exports = function(sequelize, DataTypes) {
     Info.associate = function(models) {
         // Associating Author with Posts
         // When an Author is deleted, also delete any associated Posts
-        Info.hasMany(models.Side, {
+        Info.hasOne(models.Side, {
             foreignKey: 'orderid'}
           );
       };
+    Info.associate = function(models) {
+        // Associating Author with Posts
+        // When an Author is deleted, also delete any associated Posts
+        Info.hasOne(models.Drink, {
+            foreignKey: 'orderid'}
+          );
+      };
+
+      Info.associate = function(models) {
+        // Associating Author with Posts
+        // When an Author is deleted, also delete any associated Posts
+        Info.hasOne(models.Sandwich, {
+            foreignKey: 'orderid'}
+          );
+      };
+  
   
     return Info;
   };
