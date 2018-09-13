@@ -6,6 +6,8 @@
 $(".submit").on("click", function (event) {
     // event.preventDefault();
     sessionStorage.setItem('orderid', Math.random());
+    sessionStorage.setItem('name', $("#fullname").val().trim());
+
     var newInfo = {
         orderid: sessionStorage.getItem('orderid'),
         name: $("#fullname").val().trim(),
@@ -25,11 +27,7 @@ $(".submit").on("click", function (event) {
         function () {
             console.log(newInfo);
         }
-    )
-
-    // sessionStorage.setItem('fullname', $("#fullname").val().trim());
-    // sessionStorage.setItem('streetaddress', JSON.stringify($("#streetaddress").val().trim()));
-  
+    )  
 
 
     // console.log(sessionStorage.getItem('fullname'));
