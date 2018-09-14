@@ -1,8 +1,8 @@
 module.exports = function(sequelize, DataTypes) {
     var Drink = sequelize.define("Drink", {
       orderid: DataTypes.FLOAT,
-      drinks: DataTypes.STRING},  {
-        timestamps: false  
+      name: DataTypes.STRING,
+      drinks: DataTypes.STRING,
       });
 
       Drink.associate = function(models) {

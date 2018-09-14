@@ -27,15 +27,15 @@
 				<div class="navbar-collapse collapse nav-content order-2">
 					<ul class="nav navbar-nav">
 						<li class="nav-item active">
-							<a class="nav-link text-white" href="/info">Order</a>
+							<a class="nav-link" href="/info">Order</a>
 						</li>
 						<li class="nav-item pl-5">
-							<a class="nav-link text-white" href="/menu">Menu</a>
+							<a class="nav-link" href="/menu">Menu</a>
 						</li>
 					</ul>
 				</div>
 				<ul class="nav navbar-nav text-nowrap flex-row mx-md-auto order-1 order-md-2">
-					<li class="nav-item"><a class="nav-link text-white" href="/">sandwichDash</a></li>
+					<li class="nav-item"><a class="nav-link" href="/">sandwichDash</a></li>
 					<button class="navbar-toggler ml-2" type="button" data-toggle="collapse" data-target=".nav-content" aria-expanded="false"
 					 aria-label="Toggle navigation">
 						<span class="navbar-toggler-icon"></span>
@@ -44,10 +44,10 @@
 				<div class="ml-auto navbar-collapse collapse nav-content order-3 order-md-3">
 					<ul class="ml-auto nav navbar-nav">
 						<li class="nav-item pr-5">
-							<a class="nav-link text-white" href="/nutrition">Nutrition</a>
+							<a class="nav-link" href="/nutrition">Nutrition</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link text-white" href="/contact">Contact</a>
+							<a class="nav-link" href="/contact">Contact</a>
 						</li>
 					</ul>
 				</div>
@@ -75,7 +75,7 @@
 		<div id="myGroup">
 
 			<div class="row">
-				<div class="col-8 col-md-border body-container">
+				<div class="col-9 col-md-border body-container">
 
 
 					<div class="row collapse show" id="sandwich" data-parent="#myGroup">
@@ -83,14 +83,14 @@
 									<h5>Type</h5>
 									
 									<div class="form-check">
-										<input class="form-check-input type" type="radio" name="typeRadios" id="exampleRadios1" value="Ham Sandwich"
+										<input class="form-check-input type" type="radio" name="typeRadios" id="exampleRadios1" value="Ham"
 										 checked>
 										<label class="form-check-label" for="exampleRadios1">
 											Ham
 										</label>
 									</div>
 									<div class="form-check">
-										<input class="form-check-input type" type="radio" name="typeRadios" id="exampleRadios2" value="Turkey Sandwich">
+										<input class="form-check-input type" type="radio" name="typeRadios" id="exampleRadios2" value="Turkey">
 										<label class="form-check-label" for="exampleRadios2">
 											Turkey
 										</label>
@@ -106,14 +106,14 @@
 							<h5>Bread</h5>
 							
 							<div class="form-check">
-								<input class="form-check-input bread" type="radio" name="breadRadios" id="exampleRadios1" value="White"
+								<input class="form-check-input bread" type="radio" name="breadRadios" id="exampleRadios1" value="white"
 								 checked>
 								<label class="form-check-label" for="exampleRadios1">
 									White
 								</label>
 							</div>
 							<div class="form-check bread">
-								<input class="form-check-input bread" type="radio" name="breadRadios" id="exampleRadios2" value="Wheat">
+								<input class="form-check-input bread" type="radio" name="breadRadios" id="exampleRadios2" value="wheat">
 								<label class="form-check-label" for="exampleRadios2">
 									Wheat
 								</label>
@@ -124,20 +124,20 @@
 							<h5>Cheese</h5>
 							
 							<div class="form-check">
-								<input class="form-check-input cheese" type="checkbox" name="exampleRadios" id="exampleRadios1" value="Pepper Jack"
+								<input class="form-check-input cheese" type="checkbox" name="exampleRadios" id="exampleRadios1" value="pepper jack"
 								 checked>
 								<label class="form-check-label" for="exampleRadios1">
 									Pepper Jack
 								</label>
 							</div>
 							<div class="form-check">
-								<input class="form-check-input cheese" type="checkbox" name="exampleRadios" id="exampleRadios2" value="Colby">
+								<input class="form-check-input cheese" type="checkbox" name="exampleRadios" id="exampleRadios2" value="colby">
 								<label class="form-check-label" for="exampleRadios2">
 									Colby
 								</label>
 							</div>
 							<div class="form-check">
-								<input class="form-check-input cheese" type="checkbox" name="exampleRadios" id="exampleRadios3" value="Provolone">
+								<input class="form-check-input cheese" type="checkbox" name="exampleRadios" id="exampleRadios3" value="provolone">
 								<label class="form-check-label" for="exampleRadios3">
 									Provolone
 								</label>
@@ -147,20 +147,20 @@
 							<h5>Veggies</h5>
 							
 							<div class="form-check">
-								<input class="form-check-input veggies" type="checkbox" name="exampleRadios" id="exampleRadios1" value="Lettuce"
+								<input class="form-check-input veggies" type="checkbox" name="exampleRadios" id="exampleRadios1" value="lettuce"
 								 checked>
 								<label class="form-check-label" for="exampleRadios1">
 									Lettuce
 								</label>
 							</div>
 							<div class="form-check">
-								<input class="form-check-input veggies" type="checkbox" name="exampleRadios" id="exampleRadios2" value="Tomatoes">
+								<input class="form-check-input veggies" type="checkbox" name="exampleRadios" id="exampleRadios2" value="tomatoes">
 								<label class="form-check-label" for="exampleRadios2">
 									Tomatoes
 								</label>
 							</div>
 							<div class="form-check">
-								<input class="form-check-input veggies" type="checkbox" name="exampleRadios" id="exampleRadios3" value="Onions">
+								<input class="form-check-input veggies" type="checkbox" name="exampleRadios" id="exampleRadios3" value="onions">
 								<label class="form-check-label" for="exampleRadios3">
 									Onions
 								</label>
@@ -170,20 +170,20 @@
 							<h5>Condiments</h5>
 							
 							<div class="form-check">
-								<input class="form-check-input condiments" type="checkbox" name="exampleRadios" id="exampleRadios1" value="Mayo"
+								<input class="form-check-input condiments" type="checkbox" name="exampleRadios" id="exampleRadios1" value="mayo"
 								 checked>
 								<label class="form-check-label" for="exampleRadios1">
 									Mayo
 								</label>
 							</div>
 							<div class="form-check">
-								<input class="form-check-input condiments" type="checkbox" name="exampleRadios" id="exampleRadios2" value="Mustard">
+								<input class="form-check-input condiments" type="checkbox" name="exampleRadios" id="exampleRadios2" value="mustard">
 								<label class="form-check-label" for="exampleRadios2">
 									Mustard
 								</label>
 							</div>
 							<div class="form-check">
-								<input class="form-check-input condiments" type="checkbox" name="exampleRadios" id="exampleRadios3" value="Spicy Mustard">
+								<input class="form-check-input condiments" type="checkbox" name="exampleRadios" id="exampleRadios3" value="spicy mustard">
 								<label class="form-check-label" for="exampleRadios3">
 									Spicy Mustard
 								</label>
@@ -195,111 +195,177 @@
 						<div class="col">
 							<h5>Chips</h5>
 							<div class="form-check">
-								<input class="form-check-input sides" type="radio" name="exampleRadios" id="exampleRadios1" value="Regular Chips">
+								<input class="form-check-input chips" type="radio" name="exampleRadios" id="exampleRadios1" value="Regular">
 								<label class="form-check-label" for="exampleRadios1">
 									Regular
 								</label>
 							</div>
 							<div class="form-check">
-								<input class="form-check-input sides" type="radio" name="exampleRadios" id="exampleRadios2" value="BBQ Chips">
+								<input class="form-check-input chips" type="radio" name="exampleRadios" id="exampleRadios2" value="BBQ">
 								<label class="form-check-label" for="exampleRadios2">
 									BBQ
 								</label>
 							</div>
 							<div class="form-check">
-								<input class="form-check-input sides" type="radio" name="exampleRadios" id="exampleRadios2" value="Jalapeno Chips">
+								<input class="form-check-input chips" type="radio" name="exampleRadios" id="exampleRadios2" value="Jalapeno">
 								<label class="form-check-label" for="exampleRadios2">
 									Jalapeno
 								</label>
 							</div>
 						</div>
 						<div class="col">
-							<h5>Cookies</h5>
+							<h5>Sunchips</h5>
 
 							<div class="form-check">
-								<input class="form-check-input sides" type="radio" name="exampleRadios" id="exampleRadios1" value="Chocolate Chip"
+								<input class="form-check-input chips" type="radio" name="exampleRadios" id="exampleRadios1" value="regular"
 								 checked>
 								<label class="form-check-label" for="exampleRadios1">
-									Chocolate Chip
+									Regular
 								</label>
 							</div>
 							<div class="form-check">
-								<input class="form-check-input sides" type="radio" name="exampleRadios" id="exampleRadios2" value="Oatmeal">
+								<input class="form-check-input chips" type="radio" name="exampleRadios" id="exampleRadios2" value="bbq">
 								<label class="form-check-label" for="exampleRadios2">
-									Oatmeal
+									BBQ
 								</label>
 							</div>
 							<div class="form-check">
-								<input class="form-check-input sides" type="radio" name="exampleRadios" id="exampleRadios2" value="Peanut Butter">
+								<input class="form-check-input chips" type="radio" name="exampleRadios" id="exampleRadios2" value="bbq">
 								<label class="form-check-label" for="exampleRadios2">
 									Jalapeno
 								</label>
 							</div>
 						</div>
 						<div class="col">
-							<h5>Brownies</h5>
+							<h5>Sunchips</h5>
 
 							<div class="form-check">
-								<input class="form-check-input sides" type="radio" name="exampleRadios" id="exampleRadios1" value="Fudge"
+								<input class="form-check-input chips" type="radio" name="exampleRadios" id="exampleRadios1" value="regular"
 								 checked>
 								<label class="form-check-label" for="exampleRadios1">
-									Fudge
+									Regular
 								</label>
 							</div>
 							<div class="form-check">
-								<input class="form-check-input sides" type="radio" name="exampleRadios" id="exampleRadios2" value="Chocolate">
+								<input class="form-check-input chips" type="radio" name="exampleRadios" id="exampleRadios2" value="bbq">
 								<label class="form-check-label" for="exampleRadios2">
-									Chocolate
+									BBQ
 								</label>
 							</div>
 							<div class="form-check">
-								<input class="form-check-input sides" type="radio" name="exampleRadios" id="exampleRadios2" value="Vanilla">
+								<input class="form-check-input chips" type="radio" name="exampleRadios" id="exampleRadios2" value="bbq">
 								<label class="form-check-label" for="exampleRadios2">
-									Vanilla
+									Jalapeno
 								</label>
 							</div>
 						</div>
-						
+						<div class="col">
+							<h5>Sunchips</h5>
+
+							<div class="form-check">
+								<input class="form-check-input chips" type="radio" name="exampleRadios" id="exampleRadios1" value="regular"
+								 checked>
+								<label class="form-check-label" for="exampleRadios1">
+									Regular
+								</label>
+							</div>
+							<div class="form-check">
+								<input class="form-check-input chips" type="radio" name="exampleRadios" id="exampleRadios2" value="bbq">
+								<label class="form-check-label" for="exampleRadios2">
+									BBQ
+								</label>
+							</div>
+							<div class="form-check">
+								<input class="form-check-input chips" type="radio" name="exampleRadios" id="exampleRadios2" value="bbq">
+								<label class="form-check-label" for="exampleRadios2">
+									Jalapeno
+								</label>
+							</div>
+						</div>
+						<div class="col">
+							<h5>Sunchips</h5>
+
+							<div class="form-check">
+								<input class="form-check-input chips" type="radio" name="exampleRadios" id="exampleRadios1" value="regular"
+								 checked>
+								<label class="form-check-label" for="exampleRadios1">
+									Regular
+								</label>
+							</div>
+							<div class="form-check">
+								<input class="form-check-input chips" type="radio" name="exampleRadios" id="exampleRadios2" value="bbq">
+								<label class="form-check-label" for="exampleRadios2">
+									BBQ
+								</label>
+							</div>
+							<div class="form-check">
+								<input class="form-check-input chips" type="radio" name="exampleRadios" id="exampleRadios2" value="bbq">
+								<label class="form-check-label" for="exampleRadios2">
+									Jalapeno
+								</label>
+							</div>
+						</div>
 						<button type="button" class="addSides btn btn-lg btn-block mt-3 ml-3 mr-3">Add to order</button>
 					</div>
 					<div class="row collapse" id="drinks" data-parent="#myGroup">
 						<div class="col">
-							
+							<h5>Large</h5>
 							<div class="form-check">
-								<input class="form-check-input drinks" type="radio" name="exampleRadios" id="exampleRadios1" value="Coke">
+								<input class="form-check-input drinks" type="radio" name="exampleRadios" id="exampleRadios1" value="large-coke">
 								<label class="form-check-label" for="exampleRadios1">
 									Coke
 								</label>
 							</div>
 							<div class="form-check">
-								<input class="form-check-input drinks" type="radio" name="exampleRadios" id="exampleRadios2" value="Diet Coke">
+								<input class="form-check-input drinks" type="radio" name="exampleRadios" id="exampleRadios2" value="large-sprite">
 								<label class="form-check-label" for="exampleRadios2">
-									Diet Coke
-								</label>
-							</div>
-							<div class="form-check">
-								<input class="form-check-input drinks" type="radio" name="exampleRadios" id="exampleRadios3" value="Cherry Coke">
-								<label class="form-check-label" for="exampleRadios3">
-									Cherry Coke
-								</label>
-							</div>
-						</div>
-						<div class="col">
-							
-							<div class="form-check">
-								<input class="form-check-input drinks" type="radio" name="exampleRadios" id="exampleRadios1" value="Sprite">
-								<label class="form-check-label" for="exampleRadios1">
 									Sprite
 								</label>
 							</div>
 							<div class="form-check">
-								<input class="form-check-input drinks" type="radio" name="exampleRadios" id="exampleRadios2" value="Fanta">
-								<label class="form-check-label" for="exampleRadios2">
-									Fanta
+								<input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="large-poweraid">
+								<label class="form-check-label" for="exampleRadios3">
+									Poweraid
+								</label>
+							</div>
+						</div>
+						<div class="col">
+							<h5>Medium</h5>
+							<div class="form-check">
+								<input class="form-check-input drinks" type="radio" name="exampleRadios" id="exampleRadios1" value="Medium Coke">
+								<label class="form-check-label" for="exampleRadios1">
+									Coke
 								</label>
 							</div>
 							<div class="form-check">
-								<input class="form-check-input drinks" type="radio" name="exampleRadios" id="exampleRadios3" value="Poweraid">
+								<input class="form-check-input drinks" type="radio" name="exampleRadios" id="exampleRadios2" value="Medium Sprite">
+								<label class="form-check-label" for="exampleRadios2">
+									Sprite
+								</label>
+							</div>
+							<div class="form-check">
+								<input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="Medium Poweraid">
+								<label class="form-check-label" for="exampleRadios3">
+									Poweraid
+								</label>
+							</div>
+						</div>
+						<div class="col">
+							<h5>Small</h5>
+							<div class="form-check">
+								<input class="form-check-input drinks" type="radio" name="exampleRadios" id="exampleRadios1" value="Small Coke">
+								<label class="form-check-label" for="exampleRadios1">
+									Coke
+								</label>
+							</div>
+							<div class="form-check">
+								<input class="form-check-input drinks" type="radio" name="exampleRadios" id="exampleRadios2" value="Small Sprite">
+								<label class="form-check-label" for="exampleRadios2">
+									Sprite
+								</label>
+							</div>
+							<div class="form-check">
+								<input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="Small Poweraid">
 								<label class="form-check-label" for="exampleRadios3">
 									Poweraid
 								</label>
@@ -310,37 +376,15 @@
 				</div>
 				<div class="col">
 
-						<div class="card mb-3 ">
-								<div class="text-center card-header text-white">My Order</div>
-								<div class="card-body d-flex justify-content-between">
-										<table class="table table-bordered">
-												<thead>
-												  <tr>
-													<th style="width: 80%">Item</th>
-													<th style="width: 20%">Price</th>
-												  </tr>
-												</thead>
-												<tbody id="order-to-table">
-												</tbody>
-											  </table>
-										<!-- <ul class="add-order title-border" id="type">
-											<h6>Sandwiches</h6>
-										</ul>
-										<ul class="add-order title-border" id="side">
-											<h6>Sides</h6>
-										
-										</ul>								
-										<ul class="add-order title-border" id="drink">
-											<h6>Drinks</h6>
-										
-										</ul>								 -->
+						<div class="card mb-3 text-center">
+								<div class="card-header">My Order</div>
+								<div class="card-body">
+										<ul class="add-order" id="type">
+											</ul>								
 								</div>
-								<div class="card-footer text-center" id="total">
-									Total: 
-								</div>
-								<div class="text-center card-footer card-button">
+								<div class="card-footer">
 										<a href="/checkout"><button type="button" class="submit btn btn-lg">Checkout</button></a>
-								</div>
+									</div>
 							  </div>
 
 					
@@ -361,7 +405,7 @@
 
 			<div class="d-flex justify-content-center">
 			</div>
-	<footer class="footer sticky-bottom">
+	<footer class="footer fixed-bottom">
 		<div class="container footer-container">
 			<div class="row pt-3">
 				<div class="col-3 footer-border">
@@ -430,6 +474,33 @@
 
 	<!-- Custom Script -->
 	<script type="text/javascript" src="js/order.js">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

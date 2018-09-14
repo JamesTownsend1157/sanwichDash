@@ -55,86 +55,20 @@ module.exports = function (app) {
     });
   });
 
-  app.get("/api/total", function (req, res) {
-    db.Total.findAll({}).then(function (dbTotal) {
-      res.json(dbTotal);
-    });
-  });
-
-  // Create a new example
-  app.post("/api/total", function (req, res) {
-    db.Total.create(req.body).then(function (dbTotal) {
-      res.json(dbTotal);
-    });
-  });
-
   app.get("/api/orders", function (req, res) {
     // Here we add an "include" property to our options in our findAll query
     // We set the value to an array of the models we want to include in a left outer join
     // In this case, just db.Post
     db.Info.findAll({
       include: [{ all: true }]
-    }).then(function(Info) {
-      const resObj = Info.map(function(customer){
-        //tidy up the info data
-        return Object.assign(
-          {},
-          {
-            orderid: customer.orderid,
-            name: customer.name,
-            building: customer.building,
-            room: customer.room,
-            details: customer.details,
-            total: customer.Totals.map(function(Totals){
-              //tidy up the post data
-              return Object.assign(
-                
-                
-                  Totals.total
-            )
-          }),
-            sandwiches: customer.Sandwiches.map(function(Sandwiches){
-              //tidy up the post data
-              return Object.assign(
-                {},
-                {
-                  type: Sandwiches.type,
-                  bread: Sandwiches.bread,
-                  veggies: Sandwiches.veggies,
-                  condiments: Sandwiches.condiments
-            })
-           }),
-            sides: customer.Sides.map(function(Sides){
-              //tidy up the post data
-              return Object.assign(
-                
-                
-                  Sides.sides
-            )
-          }),
-            drinks: customer.Drinks.map(function(Drinks){
-              //tidy up the post data
-              return Object.assign(
-               
-                
-                  Drinks.drinks
-          )
-         })
-        }
-        )
-        
-      })
-    
-    // }).then(function (all) {
-    //   res.json(all);
-    // });
-
-    
-    res.json(resObj)
-
-    })
-
+    }).then(function (all) {
+      res.json(all);
     });
+
+    
+
+
+  });
 
    // Delete an example by id
   // app.delete("/api/examples/:id", function(req, res) {

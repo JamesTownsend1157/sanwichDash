@@ -1,14 +1,14 @@
 module.exports = function(sequelize, DataTypes) {
-    var Drink = sequelize.define("Drink", {
+    var Total = sequelize.define("Total", {
       orderid: DataTypes.FLOAT,
-      drinks: DataTypes.STRING},  {
+      total: DataTypes.FLOAT},  {
         timestamps: false  
       });
 
-      Drink.associate = function(models) {
+      Total.associate = function(models) {
         // We're saying that a Post should belong to an Author
         // A Post can't be created without an Author due to the foreign key constraint
-        Drink.belongsTo(models.Info, {
+        Total.belongsTo(models.Info, {
           foreignKey: 'orderid'}
         );
       };
@@ -23,5 +23,5 @@ module.exports = function(sequelize, DataTypes) {
       //   });
       // };
 
-    return Drink;
+    return Total;
   };

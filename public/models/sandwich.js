@@ -4,8 +4,7 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING,
       bread: DataTypes.STRING,
       veggies: DataTypes.STRING,
-      condiments: DataTypes.STRING}, {
-        timestamps: false  
+      condiments: DataTypes.STRING,
     });
 
     Sandwich.associate = function(models) {
