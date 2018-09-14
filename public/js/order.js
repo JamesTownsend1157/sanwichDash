@@ -1,5 +1,13 @@
-
+var twilio = require('twilio');
 var total = 0;
+
+var accountSid = 'AC8441f46328c29dbef2ee07d0bb7dae0f'; // Your Account SID from www.twilio.com/console
+var authToken = 'your_auth_token';   // Your Auth Token from www.twilio.com/console
+
+var twilio = require('twilio');
+var client = new twilio(accoAC8441f46328c29dbef2ee07d0bb7dae0funtSid, authd03f99937a5e17f622bc4ab1c0208685Token);
+
+
 
 $(".submit").on("click", function (event) {
     // event.preventDefault();
@@ -15,8 +23,12 @@ $(".submit").on("click", function (event) {
         data: customerTotal
     }).then(
         function () {
-            console.log(customerTotal);
-        }
+            client.messages.create({
+                body: 'Hello from Node',
+                to: '+18505446234',  // Text this number
+                from: '+13216078227' // From a valid Twilio number
+            })
+            .then((message) => console.log(message.sid));        }
     )  
 });
 

@@ -7,10 +7,10 @@ module.exports = function (sequelize, DataTypes) {
     },
     name: DataTypes.STRING,
     building: DataTypes.STRING,
-    room: DataTypes.STRING, 
+    room_number: DataTypes.STRING,
     details: DataTypes.STRING}, {
-      timestamps: false  
-  });
+      updatedAt: 'order',
+    });
 
   // Info.associate = function(models) {
   //   // Associating Author with Posts
@@ -26,10 +26,10 @@ module.exports = function (sequelize, DataTypes) {
       foreignKey: 'orderid'
     }
     );
-    // Info.hasMany(models.Sandwich, {
-    //   foreignKey: 'orderid'
-    // }
-    // );
+    Info.hasMany(models.Sandwich, {
+      foreignKey: 'orderid'
+    }
+    );
     Info.hasMany(models.Drink, {
       foreignKey: 'orderid'
     }

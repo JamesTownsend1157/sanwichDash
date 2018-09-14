@@ -4,14 +4,14 @@
 
 
 $(".submit").on("click", function (event) {
-    // event.preventDefault();
+    event.preventDefault();
     sessionStorage.setItem('orderid', Math.random());
     sessionStorage.setItem('name', $("#fullname").val().trim());
 
     var newInfo = {
         orderid: sessionStorage.getItem('orderid'),
         name: $("#fullname").val().trim(),
-        streetaddress: $("#streetaddress").val().trim(),
+        building: $("#streetaddress").val().trim(),
 
 
     };
@@ -19,6 +19,7 @@ $(".submit").on("click", function (event) {
     // console.log(newInfo)
     $.ajax("/api/info", {
         type: "POST",
+
         data: newInfo
     }).then(
         function () {
