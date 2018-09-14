@@ -11,12 +11,7 @@ $(".submit").on("click", function (event) {
     var newInfo = {
         orderid: sessionStorage.getItem('orderid'),
         name: $("#fullname").val().trim(),
-        streetaddress: $("#streetaddress").val().trim(),
-        suite_apartment: $("#streetaddress").val().trim(),
-        city: $("#streetaddress").val().trim(),
-        state: $("#streetaddress").val().trim(),
-        zip: $("#streetaddress").val().trim(),
-
+        building: $("#streetaddress").val().trim(),
     };
 
     // console.log(newInfo)

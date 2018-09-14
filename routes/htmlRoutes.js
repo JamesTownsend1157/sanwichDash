@@ -41,6 +41,10 @@ module.exports = function(app) {
     res.sendFile(path.join(__dirname, "../public/checkout.html"));
   });
 
+  app.get("/AdminTwo", function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/admintwo.html"));
+  });
+
   // app.get("*", function(req, res) {
   //   res.sendFile(path.join(__dirname, "../public/view.html"));
   // });

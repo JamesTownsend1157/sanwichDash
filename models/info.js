@@ -26,10 +26,10 @@ module.exports = function (sequelize, DataTypes) {
       foreignKey: 'orderid'
     }
     );
-    // Info.hasMany(models.Sandwich, {
-    //   foreignKey: 'orderid'
-    // }
-    // );
+    Info.hasMany(models.Sandwich, {
+      foreignKey: 'orderid'
+    }
+    );
     Info.hasMany(models.Drink, {
       foreignKey: 'orderid'
     }
