@@ -42,15 +42,15 @@
             <div class="navbar-collapse collapse nav-content order-2">
                 <ul class="nav navbar-nav">
                     <li class="nav-item active">
-                        <a class="nav-link text-white" href="/info">Order</a>
+                        <a class="nav-link" href="/info">Order</a>
                     </li>
                     <li class="nav-item pl-5">
-                        <a class="nav-link text-white" href="/menu">Menu</a>
+                        <a class="nav-link" href="/menu">Menu</a>
                     </li>
                 </ul>
             </div>
             <ul class="nav navbar-nav text-nowrap flex-row mx-md-auto order-1 order-md-2">
-                <li class="nav-item"><a id="count" class="nav-link text-white" href="/">sandwichDash</a></li>
+                <li class="nav-item"><a id="count" class="nav-link" href="/">sandwichDash</a></li>
                 <button class="navbar-toggler ml-2" type="button" data-toggle="collapse" data-target=".nav-content"
                     aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -59,10 +59,10 @@
             <div class="ml-auto navbar-collapse collapse nav-content order-3 order-md-3">
                 <ul class="ml-auto nav navbar-nav nav-pills">
                     <li class="nav-item pr-5">
-                        <a class="nav-link text-white" href="/nutrition">Nutrition</a>
+                        <a class="nav-link" href="/nutrition">Nutrition</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="/contact">Contact</a>
+                        <a class="nav-link" href="/contact">Contact</a>
                     </li>
                 </ul>
             </div>
@@ -85,32 +85,41 @@
                     <div class="d-flex my-3 ">
                       <div class="form-check form-check-inline">
                         <input id="credit" name="paymentMethod" type="radio" class="credit-card payment form-check-input" value="Credit Card" checked="" required="">
-                        <label class="form-check-label card-label" for="credit">Credit Card</label>
+                        <label class="form-check-label card-label" for="credit">Credit card</label>
                       </div>
                       <div class="custom-control  form-check-inline">
                         <input id="debit" name="paymentMethod" type="radio" class="credit-card payment form-check-input" value="Debit Card">
-                        <label class="form-check-label card-label" for="debit">Debit Card</label>
+                        <label class="form-check-label card-label" for="debit">Debit card</label>
                       </div>
-
+                      <div class="custom-control">
+                        <input id="paypal" name="paymentMethod" type="radio" class="credit-card payment form-check-input"value="Paypal">
+                        <label class="form-check-label card-label" for="paypal">Paypal</label>
+                      </div>
                     </div>
                     <div class="row">
                       <div class="col-md-6 mb-3">
                         <label class="card-label" for="cc-name">Name on card</label>
                         <input type="text" class="form-control" id="cc-name" placeholder="" required="">
                         <small class="text-muted">Full name as displayed on card</small>
-
+                        <div class="invalid-feedback">
+                          Name on card is required
+                        </div>
                       </div>
                       <div class="col-md-6 mb-3">
-                        <label class="card-label" for="cc-number">Card number</label>
+                        <label class="card-label" for="cc-number">Credit card number</label>
                         <input type="text" class="form-control" id="cc-number" placeholder="" required="">
-
+                        <div class="invalid-feedback">
+                          Credit card number is required
+                        </div>
                       </div>
                     </div>
                     <div class="row">
                       <div class="col-md-3 mb-3">
                         <label class="credit-card" for="cc-expiration">Expiration</label>
                         <input type="text" class="form-control" id="cc-expiration" placeholder="" required="">
-
+                        <div class="invalid-feedback">
+                          Expiration date required
+                        </div>
                       </div>
                       <div class="col-md-3 mb-3">
                         <label class="credit-card" for="cc-expiration">CVV</label>

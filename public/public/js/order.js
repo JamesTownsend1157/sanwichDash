@@ -1,4 +1,3 @@
-
 var total = 0;
 
 $(".submit").on("click", function (event) {

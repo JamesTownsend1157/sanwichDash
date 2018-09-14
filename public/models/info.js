@@ -7,9 +7,8 @@ module.exports = function (sequelize, DataTypes) {
     },
     name: DataTypes.STRING,
     building: DataTypes.STRING,
-    room: DataTypes.STRING, 
-    details: DataTypes.STRING}, {
-      timestamps: false  
+    room_number: DataTypes.STRING,
+    details: DataTypes.STRING,
   });
 
   // Info.associate = function(models) {
@@ -26,10 +25,10 @@ module.exports = function (sequelize, DataTypes) {
       foreignKey: 'orderid'
     }
     );
-    // Info.hasMany(models.Sandwich, {
-    //   foreignKey: 'orderid'
-    // }
-    // );
+    Info.hasMany(models.Sandwich, {
+      foreignKey: 'orderid'
+    }
+    );
     Info.hasMany(models.Drink, {
       foreignKey: 'orderid'
     }

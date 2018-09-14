@@ -1,8 +1,8 @@
 module.exports = function(sequelize, DataTypes) {
     var Side = sequelize.define("Side", {
       orderid: DataTypes.FLOAT,
-      sides: DataTypes.STRING}, {
-        timestamps: false  
+      name: DataTypes.STRING,
+      chips: DataTypes.STRING,
       });
 
       // Side.associate = function(models) {

@@ -1,23 +1,47 @@
 
-var total = 0;
+var newSandwich = [];
+
+var newOrder = [];
 
 $(".submit").on("click", function (event) {
     // event.preventDefault();
 
-    var customerTotal = {
-        orderid: sessionStorage.getItem('orderid'),
-        total: total
+    console.log(sessionStorage.getItem('name'))
 
-    }
+    // var newOrder = {
+    //     bread: $(".bread:checked").val().trim(),
+    //     meat: $(".meat:checked").map(function () {
+    //         return this.value;
+    //     }).get().join(","),
+    //     cheese: $(".cheese:checked").map(function () {
+    //         return this.value;
+    //     }).get().join(","),
+    //     veggies: $(".veggies:checked").map(function () {
+    //         return this.value;
+    //     }).get().join(","),
+    //     condiments: $(".condiments:checked").map(function () {
+    //         return this.value;
+    //     }).get().join(","),
+    //     chips: $(".chips:checked").map(function () {
+    //         return this.value;
+    //     }).get().join(","),
+    //     drinks: $(".drinks:checked").map(function () {
+    //         return this.value;
+    //     }).get().join(","),
 
-    $.ajax("/api/total", {
-        type: "POST",
-        data: customerTotal
-    }).then(
-        function () {
-            console.log(customerTotal);
-        }
-    )  
+    // };
+    // $.ajax("/api/orders", function (req, res) {
+    //     // Here we add an "include" property to our options in our findAll query
+    //     // We set the value to an array of the models we want to include in a left outer join
+    //     // In this case, just db.Post
+    //     db.Info.findOne({
+    //         where: {orderid: sessionStorage.getItem('orderid')},
+    //         attributes: ['name']
+    //     }).then(function (attributes) {
+    //       console.log(attributes);
+    //     })
+    //   });
+
 });
 
 $(".addSandwich").on("click", function (event) {
@@ -58,11 +82,7 @@ $(".addSandwich").on("click", function (event) {
         function () {
 
                 if (newSandwich) {
-                    $("#order-to-table").append( $('<tr><td class="order-font">' + newSandwich.type + '</td><td class="order-font">' + '$5.00' + '</td></tr>'));
-                    total = total + 5;
-                    $("#total").text( 'Total: $' + total + '.00');
-                    console.log(total);
-
+                    $("#type").append( $("<li>" + newSandwich.type + "</li>"));
                 }
         }
     )
@@ -75,7 +95,7 @@ $(".addSides").on("click", function (event) {
 
     var newSides = {
         orderid: sessionStorage.getItem('orderid'),
-        sides: $(".sides:checked").map(function () {return this.value;}).get().join(","),
+        chips: $(".chips:checked").map(function () {return this.value;}).get().join(","),
     }
 
 
@@ -85,11 +105,7 @@ $(".addSides").on("click", function (event) {
     }).then(
         function () {
             if (newSides) {
-                    $("#order-to-table").append( $('<tr><td class="order-font">' + newSides.sides + '</td><td class="order-font">' + '$1.00' + '</td></tr>'));
-                    total = total + 1;
-                    $("#total").text( 'Total: $' + total + '.00');
-                    console.log(total);
-
+                $("#type").append( $("<li>" + newSides.chips + "</li>"));
             }
         }
     )
@@ -111,10 +127,7 @@ $(".addDrinks").on("click", function (event) {
     }).then(
         function () {
             if (newDrinks) {
-                $("#order-to-table").append( $('<tr><td class="order-font">' + newDrinks.drinks + '</td><td class="order-font">' + '$1.00' + '</td></tr>'));
-                total = total + 1;
-                $("#total").text( 'Total: $' + total + '.00');
-                console.log(total);
+                $("#type").append( $("<li>" + newDrinks.drinks + "</li>"));
             }
         }
     )

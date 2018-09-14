@@ -83,7 +83,7 @@ module.exports = function (app) {
             orderid: customer.orderid,
             name: customer.name,
             building: customer.building,
-            room: customer.room,
+            room_number: customer.room,
             details: customer.details,
             total: customer.Totals.map(function(Totals){
               //tidy up the post data

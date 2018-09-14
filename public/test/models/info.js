@@ -6,10 +6,11 @@ module.exports = function (sequelize, DataTypes) {
       primaryKey: true,
     },
     name: DataTypes.STRING,
-    building: DataTypes.STRING,
-    room: DataTypes.STRING, 
-    details: DataTypes.STRING}, {
-      timestamps: false  
+    streetaddress: DataTypes.STRING,
+    suite_apartment: DataTypes.STRING,
+    city: DataTypes.STRING,
+    state: DataTypes.STRING,
+    zip: DataTypes.STRING,
   });
 
   // Info.associate = function(models) {
@@ -26,15 +27,11 @@ module.exports = function (sequelize, DataTypes) {
       foreignKey: 'orderid'
     }
     );
-    // Info.hasMany(models.Sandwich, {
-    //   foreignKey: 'orderid'
-    // }
-    // );
-    Info.hasMany(models.Drink, {
+    Info.hasMany(models.Sandwich, {
       foreignKey: 'orderid'
     }
     );
-    Info.hasMany(models.Total, {
+    Info.hasMany(models.Drink, {
       foreignKey: 'orderid'
     }
     );
