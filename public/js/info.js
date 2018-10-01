@@ -1,45 +1,49 @@
-
-
-
-
-
+// Button collects info from form
 $(".submit").on("click", function (event) {
+  // Variables that store name and room info
+  var stop = $("#fullname")
+    .val()
+    .trim();
+  var stop1 = $("#room")
+    .val()
+    .trim();
+
+  // Prevent form from submitting--Need to revise
+  if (stop == "") {
     event.preventDefault();
-    sessionStorage.setItem('orderid', Math.random());
-    sessionStorage.setItem('name', $("#fullname").val().trim());
+  } else if (stop1 == "") {
+    event.preventDefault();
+  } else {
+    // Saves orderid and name to session storage
+    sessionStorage.setItem("orderid", Math.random());
+    sessionStorage.setItem(
+      "name",
+      $("#fullname")
+      .val()
+      .trim()
+    );
 
+    // Variable that stores form data and readies it for ajax
     var newInfo = {
-        orderid: sessionStorage.getItem('orderid'),
-        name: $("#fullname").val().trim(),
-        building: $("#streetaddress").val().trim(),
-
-
+      orderid: sessionStorage.getItem("orderid"),
+      name: $("#fullname")
+        .val()
+        .trim(),
+      building: $("#streetaddress")
+        .val()
+        .trim()
     };
 
     // console.log(newInfo)
+
+    // Posting form data to api/info using form data
     $.ajax("/api/info", {
-        type: "POST",
+      type: "POST",
+      data: newInfo
+    }).then(function () {
+      console.log(newInfo);
+    });
 
-        data: newInfo
-    }).then(
-        function () {
-            console.log(newInfo);
-        }
-    )  
-
-
-    // console.log(sessionStorage.getItem('fullname'));
-    // console.log(sessionStorage.getItem('streetaddress'));
-    console.log(sessionStorage.getItem('orderid'));
-    
-    
-
-    // $.ajax("/api/orders", {
-    //     type: "POST",
-    //     data: newOrder
-    // }).then(
-    //     function () {
-    //         console.log(newOrder);
-    //     }
-    // )
+    // console.log(sessionStorage.getItem('orderid'));
+  }
 });

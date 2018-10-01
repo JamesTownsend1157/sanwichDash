@@ -1,152 +1,215 @@
-var twilio = require('twilio');
+// Variable storing total
 var total = 0;
 
-var accountSid = 'AC8441f46328c29dbef2ee07d0bb7dae0f'; // Your Account SID from www.twilio.com/console
-var authToken = 'your_auth_token';   // Your Auth Token from www.twilio.com/console
-
-var twilio = require('twilio');
-var client = new twilio(accoAC8441f46328c29dbef2ee07d0bb7dae0funtSid, authd03f99937a5e17f622bc4ab1c0208685Token);
-
-
-
+// When clicking on submit button
 $(".submit").on("click", function (event) {
-    // event.preventDefault();
-
+  // Prevents submit if total = 0
+  if (total == 0) {
+    event.preventDefault();
+  } else {
+    // Readies total data for AJAX
     var customerTotal = {
-        orderid: sessionStorage.getItem('orderid'),
-        total: total
+      orderid: sessionStorage.getItem("orderid"),
+      total: total
+    };
 
-    }
-
+    // Post total data using AJAX
     $.ajax("/api/total", {
-        type: "POST",
-        data: customerTotal
-    }).then(
-        function () {
-            client.messages.create({
-                body: 'Hello from Node',
-                to: '+18505446234',  // Text this number
-                from: '+13216078227' // From a valid Twilio number
-            })
-            .then((message) => console.log(message.sid));        }
-    )  
+      type: "POST",
+      data: customerTotal
+    }).then(function () {
+      console.log(customerTotal);
+    });
+  }
 });
 
+//When clicking on add-to-order sandwich button
 $(".addSandwich").on("click", function (event) {
-    event.preventDefault();
+  event.preventDefault();
 
-    // if (newOrder.bread == undefined) {
-    // newOrder.bread = $(".bread:checked").val().trim();
-    // } else {newOrder.bread = newOrder.bread + $(".bread:checked").val().trim();}
+  // Readies sandwich data for AJAX
+  var newSandwich = {
+    orderid: sessionStorage.getItem("orderid"),
+    sandwichid: Math.random(),
+    type: $(".type:checked")
+      .map(function () {
+        return this.value;
+      })
+      .get()
+      .join(","),
+    bread: $(".bread:checked")
+      .map(function () {
+        return this.value;
+      })
+      .get()
+      .join(","),
+    cheese: $(".cheese:checked")
+      .map(function () {
+        return this.value;
+      })
+      .get()
+      .join(","),
+    veggies: $(".veggies:checked")
+      .map(function () {
+        return this.value;
+      })
+      .get()
+      .join(","),
+    condiments: $(".condiments:checked")
+      .map(function () {
+        return this.value;
+      })
+      .get()
+      .join(",")
+  };
 
-    var newSandwich = {
-            orderid: sessionStorage.getItem('orderid'),
-            type: $(".type:checked").map(function () { return this.value; }).get().join(","),
-            bread: $(".bread:checked").map(function () { return this.value; }).get().join(","),
-            cheese: $(".cheese:checked").map(function () { return this.value; }).get().join(","),
-            veggies: $(".veggies:checked").map(function () { return this.value; }).get().join(","),
-            condiments: $(".condiments:checked").map(function () { return this.value; }).get().join(","),
+  // Post sandwich data using AJAX
+  $.ajax("/api/sandwiches", {
+    type: "POST",
+    data: newSandwich
+  }).then(function () {
+    // Appends sandwich data to document
+    if (newSandwich) {
+      $("#order-to-table").append(
+        $(
+          "<tr class='replace-sandwich' data-show-sandwich=" + newSandwich.sandwichid + "><td class='order-font'><button data-sandwich=" + newSandwich.sandwichid + " type='button' class='close close-sandwich' aria-label='Close'><span aria-hidden='true'>&times;</span></button>" +
+          newSandwich.type +
+          "</td><td class='order-font'>" +
+          "$5.00" +
+          "</td></tr>"
+        )
+      );
+      total = total + 5;
+      $("#total").text("Total: $" + total + ".00");
+      console.log(total);
     }
-
-    
-
-    
-
-    // newOrder.bread = newOrder.bread + $(".bread:checked").val().trim();
-    // newOrder.meat = $(".meat:checked").map(function () { return this.value; }).get().join(",");
-    // newOrder.cheese = $(".cheese:checked").map(function () { return this.value; }).get().join(",");
-    // newOrder.veggies = $(".veggies:checked").map(function () { return this.value; }).get().join(",");
-    // newOrder.condiments = $(".condiments:checked").map(function () { return this.value; }).get().join(",");
-
-
-
-  
-
-
-    $.ajax("/api/sandwiches", {
-        type: "POST",
-        data: newSandwich
-    }).then(
-        function () {
-
-                if (newSandwich) {
-                    $("#order-to-table").append( $('<tr><td class="order-font">' + newSandwich.type + '</td><td class="order-font">' + '$5.00' + '</td></tr>'));
-                    total = total + 5;
-                    $("#total").text( 'Total: $' + total + '.00');
-                    console.log(total);
-
-                }
-        }
-    )
+  });
 });
 
-
+// When clicking on add-to-order side button
 $(".addSides").on("click", function (event) {
-    event.preventDefault();
+  event.preventDefault();
 
+  // Readies side data for AJAX
+  var newSides = {
+    orderid: sessionStorage.getItem("orderid"),
+    sideid: Math.random(),
+    sides: $(".sides:checked")
+      .map(function () {
+        return this.value;
+      })
+      .get()
+      .join(",")
+  };
 
-    var newSides = {
-        orderid: sessionStorage.getItem('orderid'),
-        sides: $(".sides:checked").map(function () {return this.value;}).get().join(","),
+  // Posts side data using AJAX
+  $.ajax("/api/sides", {
+    type: "POST",
+    data: newSides
+  }).then(function () {
+    // Appends side data to document
+    if (newSides) {
+      $("#order-to-table").append(
+        $(
+          "<tr class='replace-side' data-show-side=" + newSides.sideid + "><td class='order-font'><button data-side=" + newSides.sideid + " type='button' class='close close-side' aria-label='Close'><span aria-hidden='true'>&times;</span></button>" +
+          newSides.sides +
+          '</td><td class="order-font">' +
+          "$1.00" +
+          "</td></tr>"
+        )
+      );
+      total = total + 1;
+      $("#total").text("Total: $" + total + ".00");
+      console.log(total);
     }
-
-
-    $.ajax("/api/sides", {
-        type: "POST",
-        data: newSides
-    }).then(
-        function () {
-            if (newSides) {
-                    $("#order-to-table").append( $('<tr><td class="order-font">' + newSides.sides + '</td><td class="order-font">' + '$1.00' + '</td></tr>'));
-                    total = total + 1;
-                    $("#total").text( 'Total: $' + total + '.00');
-                    console.log(total);
-
-            }
-        }
-    )
+  });
 });
 
-
+// When clicking on add-to-order drink button
 $(".addDrinks").on("click", function (event) {
-    event.preventDefault();
+  event.preventDefault();
 
+  // Readies drink data for AJAX
+  var newDrinks = {
+    orderid: sessionStorage.getItem("orderid"),
+    drinkid: Math.random(),
+    drinks: $(".drinks:checked")
+      .map(function () {
+        return this.value;
+      })
+      .get()
+      .join(",")
+  };
 
-    var newDrinks = {
-        orderid: sessionStorage.getItem('orderid'),
-        drinks: $(".drinks:checked").map(function () {return this.value;}).get().join(",")
-}
-
-    $.ajax("/api/drinks", {
-        type: "POST",
-        data: newDrinks
-    }).then(
-        function () {
-            if (newDrinks) {
-                $("#order-to-table").append( $('<tr><td class="order-font">' + newDrinks.drinks + '</td><td class="order-font">' + '$1.00' + '</td></tr>'));
-                total = total + 1;
-                $("#total").text( 'Total: $' + total + '.00');
-                console.log(total);
-            }
-        }
-    )
+  // Posts side data using AJAX
+  $.ajax("/api/drinks", {
+    type: "POST",
+    data: newDrinks
+  }).then(function () {
+    // Appends drink data to document
+    if (newDrinks) {
+      $("#order-to-table").append(
+        $(
+          "<tr class='replace-drink' data-show-drink=" + newDrinks.drinkid + "><td class='order-font'><button data-drink=" + newDrinks.drinkid + " type='button' class='close close-drink' aria-label='Close'><span aria-hidden='true'>&times;</span></button>" +
+          newDrinks.drinks +
+          '</td><td class="order-font">' +
+          "$1.00" +
+          "</td></tr>"
+        )
+      );
+      total = total + 1;
+      $("#total").text("Total: $" + total + ".00");
+      console.log(total);
+    }
+  });
 });
 
-//modal
 
-//on show
-$('#exampleModal').on('show.bs.modal', function (event) {
-    var button = $(event.relatedTarget) // Button that triggered the modal
-    var recipient = button.data('whatever') // Extract info from data-* attributes
-    // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
-    // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
-    var modal = $(this)
-    modal.find('.modal-title').text('Congrats ' + sessionStorage.getItem('name'))
-    modal.find('.modal-body').text("Your order has been recieved and you will recieve a conformation text shortly")
+// Prevent Collaspe on itself
+
+$('[data-toggle=collapse]').on('click', function (e) {
+  // e.preventDefault();
+  if ($(this).attr('aria-expanded') == 'true') {
+    e.stopPropagation();
+    return false;
+  }
+});
+
+// Delete Sandwich
+$(document).on('click', '.close-sandwich', function () {
+  var id = $(this).attr("data-sandwich");
+  $.ajax({
+    method: "DELETE",
+    url: "/api/sandwiches/" + id
+  }).then(function(){
+    $('.replace-sandwich[data-show-sandwich="' + id + '"]').remove();
+    total = total - 5;
+    $("#total").text("Total: $" + total + ".00");
   })
+});
 
-// on hide
-$('#exampleModal').on('hidden.bs.modal', function (event) {
-    window.location.href = "/";
+// Delete Side
+$(document).on('click', '.close-side', function () {
+  var id = $(this).attr("data-side");
+  $.ajax({
+    method: "DELETE",
+    url: "/api/sides/" + id
+  }).then(function(){
+    $('.replace-side[data-show-side="' + id + '"]').remove();
+    total = total - 1;
+    $("#total").text("Total: $" + total + ".00");
+  })
+});
 
-})
+// Delete Sandwich
+$(document).on('click', '.close-drink', function () {
+  var id = $(this).attr("data-drink");
+  $.ajax({
+    method: "DELETE",
+    url: "/api/drinks/" + id
+  }).then(function(){
+    $('.replace-drink[data-show-drink="' + id + '"]').remove();
+    total = total - 1;
+    $("#total").text("Total: $" + total + ".00");
+  })
+});

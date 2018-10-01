@@ -1,101 +1,62 @@
-function showRemaining() {
-  var endDate = new Date();
+var clock;
 
-  // If after 1100, add a day
-  if (endDate.getHours() > 11) {   
-    endDate.setDate(endDate.getDate() + 1);
+// Displays flipclock
+$(document).ready(function () {
+  var deadlineHour = 11,
+    offset = 0;
+
+  // Grab the current date
+  var currentDate = new Date();
+
+  if (currentDate.getHours() >= deadlineHour) {
+    offset = 1;
   }
-  // Set time to 11am;
-  endDate.setHours(11,0,0,0);
 
-  // Get seconds from now to end
-  var diff = Math.ceil((endDate - Date.now())/1000);
+  var futureDate = new Date(
+    currentDate.getFullYear(),
+    currentDate.getMonth(),
+    currentDate.getDate() + offset,
+    deadlineHour
+  );
 
-  // Show time as h:mm:ss
-  return ( (diff/3.6e3|0) + ':' +
-           ('0'+((diff%3.6e3)/60|0)).slice(-2) + ':' +
-           ('0'+(diff%60)).slice(-2)
-         );
-}
- 
-// Run every second just after next full second
-(function timer() {
-  $( ".countDown" ).html(showRemaining());
-    var lag = 1020 - (Date.now()%1000)
-    setTimeout(timer, lag);
-}());
-  // create the timestamp here. I use the end of the day here as an examplevar end = moment("11:00:00", "HH:ss:mm");
+  // Calculate the difference in seconds between the future and current date
+  var diff = futureDate.getTime() / 1000 - currentDate.getTime() / 1000;
 
-  // $(document).ready(function () {
+  console.log(diff);
 
 
-  //   var end = moment("11:00:00", "HH:ss:mm");
-  //   $(function() {
-  //   setInterval(function() {
-  //       const timeLeft = moment(end.diff(moment())); // get difference between now and timestamp
-  //       const formatted = timeLeft.format('HH:ss:mm'); // make pretty
-  //       $( "#counter" ).html(formatted); // or do your jQuery stuff here
-  //   }, 1000);
-  //   })
-  //   // setInterval();
-    
+  // Instantiate a coutdown FlipClock
+  clock = $(".clock").FlipClock(diff, {
+    clockFace: "HourlyCounter",
 
+    countdown: true,
+    // onStop: function() {
+    //   console.log("hello");
+    //   $("#exampleModal").modal("show");
+    //   clock.setFaceValue(24 * 60 * 60);
+    //   clock.start();
+    // }
+  });
+
+  // clock.face.on("stop", function () {
+  //   // add 24 hours worth of seconds to the clock face
+  //   clock.setFaceValue(24 * 60 * 60);
+  //   clock.start();
   // });
-
-  // function getTimeRemaining(endtime) {
-  //   var t = Date.parse(endtime) - Date.parse(new Date());
-  //   var seconds = Math.floor((t / 1000) % 60);
-  //   var minutes = Math.floor((t / 1000 / 60) % 60);
-  //   var hours = Math.floor((t / (1000 * 60 * 60)) % 24);
-  //   var days = Math.floor(t / (1000 * 60 * 60 * 24));
-  //   return {
-  //     'total': t,
-  //     'days': days,
-  //     'hours': hours,
-  //     'minutes': minutes,
-  //     'seconds': seconds
-  //   };
-  // }
-  
-  // function initializeClock(id, endtime) {
-  //   var clock = document.getElementById(id);
-  //   var daysSpan = clock.querySelector('.days');
-  //   var hoursSpan = clock.querySelector('.hours');
-  //   var minutesSpan = clock.querySelector('.minutes');
-  //   var secondsSpan = clock.querySelector('.seconds');
-  
-  //   function updateClock() {
-  //     var t = getTimeRemaining(endtime);
-  
-  //     daysSpan.innerHTML = t.days;
-  //     hoursSpan.innerHTML = ('0' + t.hours).slice(-2);
-  //     minutesSpan.innerHTML = ('0' + t.minutes).slice(-2);
-  //     secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
-  
-  //     if (t.total <= 0) {
-  //       clearInterval(timeinterval);
-  //     }
-  //   }
-  
-  //   updateClock();
-  //   var timeinterval = setInterval(updateClock, 1000);
-  // }
-  
-  // function getNextSaturday() {
-  //    var now = new Date();
-  //    var nextSaturday = new Date();
-  //    nextSaturday.setDate(now.getDate() + (6 - 1 - now.getDay() + 7) % 7 + 1);
-  //    nextSaturday.setHours(11, 0, 0, 0);
-  //    return nextSaturday;
-  // }
-  
-  // function convertToEST(date){
-  //     estOffset = -5.0
-  //     utc = date.getTime() + (date.getTimezoneOffset() * 60000);
-  //     return new Date(utc + (3600000 * estOffset));
-  // }
-  
-  // var deadline = getNextSaturday();
-  // initializeClock('clockdiv', convertToEST(deadline));
+});
 
 
+$("#exampleModal").on("show.bs.modal", function (event) {
+  var modal = $(this);
+  modal.find(".modal-title").text("Sorry");
+  modal
+    .find(".modal-body")
+    .text(
+      "You missed it. But don't worry you have plenty of time to order one for tomorrow"
+    );
+});
+
+// On close Modal redirects user to home/root
+$("#exampleModal").on("hidden.bs.modal", function (event) {
+  window.location.href = "/";
+});
